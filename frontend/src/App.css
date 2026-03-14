@@ -1,0 +1,210 @@
+.app-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  width: 100%;
+}
+
+.hero {
+  margin-bottom: 3rem;
+  animation: fadeInDown 0.8s ease-out;
+}
+
+.subtitle {
+  color: #8b949e;
+  font-size: 1.2rem;
+  margin-top: -0.5rem;
+}
+
+.upload-section {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  max-width: 600px;
+  margin: 0 auto 3rem auto;
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.upload-section::before {
+  content: "";
+  position: absolute;
+  top: -50%; right: -50%; bottom: -50%; left: -50%;
+  background: conic-gradient(from 0deg, transparent 0 340deg, rgba(88, 166, 255, 0.4) 360deg);
+  animation: rotate 10s linear infinite;
+  z-index: -1;
+  opacity: 0.2;
+}
+
+.file-input-wrapper {
+  width: 100%;
+  border: 2px dashed #30363d;
+  border-radius: 12px;
+  padding: 2rem;
+  background: rgba(33, 38, 45, 0.3);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.file-input-wrapper:hover, .file-input-wrapper.active {
+  border-color: #58a6ff;
+  background: rgba(88, 166, 255, 0.05);
+}
+
+.file-input-wrapper input[type="file"] {
+  display: none;
+}
+
+.file-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  color: #c9d1d9;
+  cursor: pointer;
+}
+
+.github-input-group {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+.github-input-group label {
+  font-size: 0.9rem;
+  color: #8b949e;
+  font-weight: 500;
+}
+
+.analyze-btn {
+  width: 100%;
+  background: linear-gradient(90deg, #238636, #2ea043);
+  color: white;
+  font-size: 1.1rem;
+  padding: 1rem;
+  border: none;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(46, 160, 67, 0.4);
+}
+.analyze-btn:hover {
+  background: linear-gradient(90deg, #2ea043, #3fb950);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(46, 160, 67, 0.6);
+}
+.analyze-btn:disabled {
+  background: linear-gradient(90deg, #30363d, #484f58);
+  box-shadow: none;
+  cursor: not-allowed;
+  transform: none;
+  color: #8b949e;
+}
+
+/* Loader */
+.spinner {
+  width: 24px;
+  height: 24px;
+  border: 3px solid rgba(255,255,255,0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s ease-in-out infinite;
+  display: inline-block;
+}
+
+/* Results Section */
+.results-section {
+  animation: fadeInUp 0.8s ease-out;
+  text-align: left;
+}
+.score-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  background: linear-gradient(135deg, rgba(88, 166, 255, 0.1), rgba(163, 113, 247, 0.1));
+  border: 1px solid rgba(163, 113, 247, 0.3);
+}
+
+.score-circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.2rem;
+  font-weight: 800;
+  border: 4px solid;
+  text-shadow: 0 0 10px currentColor;
+  box-shadow: 0 0 20px currentColor inset;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.list-card {
+  background: rgba(33, 38, 45, 0.5);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+.list-card h3 {
+  margin-top: 0;
+  border-bottom: 1px solid #30363d;
+  padding-bottom: 0.8rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.verified { color: #3fb950; }
+.unverified { color: #f85149; }
+
+.skill-tag {
+  display: inline-block;
+  background: #1f2428;
+  border: 1px solid #30363d;
+  padding: 0.4em 0.8em;
+  border-radius: 20px;
+  margin: 0.3em;
+  font-size: 0.9em;
+  transition: all 0.2s ease;
+}
+.skill-tag:hover {
+  border-color: #58a6ff;
+  transform: translateY(-2px);
+}
+
+.risk-indicators {
+  margin-top: 2rem;
+  border-left: 4px solid #d29922;
+  background: rgba(210, 153, 34, 0.1);
+}
+
+ul {
+  padding-left: 1.5rem;
+  margin: 0;
+}
+li { margin-bottom: 0.5rem; }
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+@keyframes rotate {
+  100% { transform: rotate(360deg); }
+}
+@media (max-width: 768px) {
+  .grid-2 { grid-template-columns: 1fr; }
+}
